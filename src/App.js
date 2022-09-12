@@ -37,12 +37,11 @@ function App() {
               color="text.primary"
               gutterBottom
             >
-              Album layout
+              Montreal Parking Map
             </Typography>
             <Typography variant="h5" align="center" color="text.secondary" paragraph>
-              Something short and leading about the collection below—its contents,
-              the creator, etc. Make it short and sweet, but not too short so folks
-              don&apos;t simply skip over it entirely.
+              Montreal's finest parking signs localisation app that will help you
+              stay out of trouble and save some big bucks!
             </Typography>
             <Stack
               sx={{ pt: 4 }}
