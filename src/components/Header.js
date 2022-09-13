@@ -2,6 +2,7 @@ import React from 'react'
 import AppBar from '@mui/material/AppBar';
 import Typography from '@mui/material/Typography';
 import Toolbar from '@mui/material/Toolbar';
+import ThemeToggle from './ThemeToggle';
 
 
 const Header = () => {
@@ -11,6 +12,9 @@ const Header = () => {
           <Typography variant="h6" color="inherit" noWrap>
             Montreal Parking Map
           </Typography>
+          <div style ={{ position: 'absolute', right: '35px'}}>
+            <ThemeToggle/>
+          </div>
         </Toolbar>
     </AppBar>
   )

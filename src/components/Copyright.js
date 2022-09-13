@@ -5,13 +5,17 @@ import Link from '@mui/material/Link';
 const Copyright = () => {
   return (
     <Typography variant="body2" color="text.secondary" align="center">
-        {'Copyright © '}
-        <Link color="inherit" href="https://mui.com/">
-          Your Website
-        </Link>{' '}
+        
+        <Link color="inherit" href="https://github.com/diecastt/parking-map-app" target="_blank">
+          GitHub
+        </Link>{'  •  '}
+        <Link color="inherit" href="https://www.linkedin.com/in/diego-a-castillo/" target="_blank">
+          LinkedIn
+        </Link>{'  •  '}
         {new Date().getFullYear()}
         {'.'}
-      </Typography>
+        <div>{'Copyright ©'}</div>
+    </Typography>
   )
 }
 

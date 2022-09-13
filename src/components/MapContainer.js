@@ -1,30 +1,24 @@
 import React from 'react'
-import { GoogleMap, LoadScript, Marker} from '@react-google-maps/api'
-
+import Map from './Map'
+import Box from '@mui/material/Box';
+import Container from '@mui/material/Container';
 
 const MapContainer = () => {
-	
-	const API_KEY = 'AIzaSyDXO5NqvtqfpWugAJbnuhkvabxqjNQbIWY'
-	console.log(process.env.REACT_APP_MAPS_KEY)
-	console.log({API_KEY})
-	const mapStyle = {
-		height: "100vh",
-		width: '100%'
-	}
-	const defaultCenter = {
-		lat: 45.469115,
-		lng: -73.643790
-	}
-
-    return (
-        <LoadScript googleMapsApiKey= {API_KEY}>
-			<GoogleMap
-				mapContainerStyle={mapStyle}
-				zoom={13}
-				center={defaultCenter}
-			/>
-		</LoadScript>
-    )
+  return (
+    <Box
+		sx = {{
+			pb: '100px'
+		}}>
+        <Container maxWidth="lg"
+        sx ={{
+            justifyContent: 'center',
+            border: '1px solid grey',
+            borderRadius: '4px',
+        }}>
+            <Map/>
+        </Container>
+	</Box>
+  )
 }
 
 export default MapContainer
