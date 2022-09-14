@@ -5,7 +5,7 @@ import Toolbar from '@mui/material/Toolbar';
 import ThemeToggle from './ThemeToggle';
 
 
-const Header = () => {
+const Header = ({ onToggle }) => {
   return (
     <AppBar position="relative" style = {{ background: '#8066CA'}}>
         <Toolbar>
@@ -13,7 +13,7 @@ const Header = () => {
             Montreal Parking Map
           </Typography>
           <div style ={{ position: 'absolute', right: '35px'}}>
-            <ThemeToggle/>
+            <ThemeToggle theme = {onToggle}/>
           </div>
         </Toolbar>
     </AppBar>

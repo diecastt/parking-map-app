@@ -5,8 +5,6 @@ import { GoogleMap, LoadScript, Marker} from '@react-google-maps/api'
 const Map = ( {signMarkers} ) => {
 	
 	const API_KEY = 'AIzaSyDXO5NqvtqfpWugAJbnuhkvabxqjNQbIWY'
-	console.log(process.env.REACT_APP_MAPS_KEY)
-	console.log({API_KEY})
 	const mapStyle = {
 		height: "100vh",
 		width: '100%'
@@ -26,12 +24,13 @@ const Map = ( {signMarkers} ) => {
 					signMarkers.map((item) => {
 						
 						const location = {
-							lat: Number(item.latitude),
-							lng: Number(item.longitude),
+							lat: Number(item.Latitude),
+							lng: Number(item.Longitude),
 						}
+						console.log(location)
 						console.log(item)
 						return(
-							<Marker key = {item._id} position={location}/>
+							<Marker key = {item._ID} position={location}/>
 						)
 					})
 				}
