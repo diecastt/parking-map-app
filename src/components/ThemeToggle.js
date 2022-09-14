@@ -1,8 +1,9 @@
 import React from 'react'
 import { styled } from '@mui/material/styles';
 import Switch from '@mui/material/Switch';
+import { FormControlLabel } from '@mui/material';
 
-const ThemeToggle = styled(Switch)(({ theme }) => ({
+const customToggle = styled(Switch)(({ theme }) => ({
     width: 62,
     height: 34,
     padding: 7,
@@ -49,4 +50,14 @@ const ThemeToggle = styled(Switch)(({ theme }) => ({
     },
   }));
 
+const ThemeToggle = ({ onToggle }) => {
+  return (
+    <FormControlLabel
+      control={<customToggle sx={{ m: 1 }} defaultChecked/>}
+      onChange = {onToggle}
+      label = "Light/Dark"/>
+  )
+}
+
 export default ThemeToggle
+
