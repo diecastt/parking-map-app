@@ -2,7 +2,7 @@ import React from 'react'
 import { GoogleMap, LoadScript, Marker} from '@react-google-maps/api'
 
 
-const Map = () => {
+const Map = ( {signMarkers} ) => {
 	
 	const API_KEY = 'AIzaSyDXO5NqvtqfpWugAJbnuhkvabxqjNQbIWY'
 	console.log(process.env.REACT_APP_MAPS_KEY)
@@ -21,8 +21,22 @@ const Map = () => {
 			<GoogleMap
 				mapContainerStyle={mapStyle}
 				zoom={13}
-				center={defaultCenter}
-			/>
+				center={defaultCenter}>
+				{
+					signMarkers.map((item) => {
+						
+						const location = {
+							lat: Number(item.latitude),
+							lng: Number(item.longitude),
+						}
+						console.log(item)
+						return(
+							<Marker key = {item._id} position={location}/>
+						)
+					})
+				}
+			</GoogleMap>
+			
 		</LoadScript>
     )
 }

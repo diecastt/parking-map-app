@@ -3,7 +3,7 @@ import Map from './Map'
 import Box from '@mui/material/Box';
 import Container from '@mui/material/Container';
 
-const MapContainer = () => {
+const MapContainer = ( {signMarkers} ) => {
   return (
     <Box
 		sx = {{
@@ -15,7 +15,7 @@ const MapContainer = () => {
             border: '1px solid grey',
             borderRadius: '4px',
         }}>
-            <Map/>
+            <Map signMarkers = {signMarkers}/>
         </Container>
 	</Box>
   )
