@@ -3,28 +3,22 @@ import Introduction from './components/Introduction';
 import Header from './components/Header'
 import Footer from './components/Footer'
 import CssBaseline from '@mui/material/CssBaseline';
-import { createTheme, ThemeProvider } from '@mui/material/styles';
+import { ThemeProvider } from '@mui/material/styles';
+import { lightTheme, darkTheme} from './components/Theme'
 import MapContainer from './components/MapContainer';
-
-//creating light or dark theme
 
 const API_LINK = 'https://montreal.l3.ckan.io/api/3/action/datastore_search?resource_id=7f1d4ae9-1a12-46d7-953e-6b9c18c78680&limit=100&offset=158900'
 function App() {
 
-	//light and dark themes
-	const lightTheme = createTheme({
-		palette: {
-		  mode: 'light',
-		}
-	});
-	const darkTheme = createTheme({
-		palette: {
-		  mode: 'dark',
-		}
-	});
 
 	const [signLocations, setSignLocations] = useState([]);
-	const [theme, setTheme] = useState(lightTheme)
+	const [isDarkTheme, setIsDarkTheme] = useState(false) // default lightTheme
+
+	//Theme toggle
+	const toggleTheme = () => {
+		setIsDarkTheme(!isDarkTheme);
+	};
+
 
 	//Fetch Parking Signs
 	useEffect(() => {
@@ -38,15 +32,10 @@ function App() {
 
 	}, []);
   
-  const onToggle = (theme) => {
-    theme === lightTheme ? setTheme(darkTheme) : setTheme(lightTheme)
-    return theme
-  }
-
   return (
-    <ThemeProvider theme={theme}>
+    <ThemeProvider theme={isDarkTheme ? darkTheme : lightTheme}>
       <CssBaseline/>
-      <Header onToggle = {onToggle}/>
+      <Header checked = {isDarkTheme} onToggle = {toggleTheme}/>
       <main>
         <Introduction/>
 		    <MapContainer signMarkers={signLocations}/>

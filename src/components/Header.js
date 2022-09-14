@@ -5,15 +5,15 @@ import Toolbar from '@mui/material/Toolbar';
 import ThemeToggle from './ThemeToggle';
 
 
-const Header = ({ onToggle }) => {
+const Header = ({ checked, onToggle }) => {
   return (
     <AppBar position="relative" style = {{ background: '#8066CA'}}>
         <Toolbar>
           <Typography variant="h6" color="inherit" noWrap>
             Montreal Parking Map
           </Typography>
-          <div style ={{ position: 'absolute', right: '35px'}}>
-            <ThemeToggle theme = {onToggle}/>
+          <div style ={{ position: 'absolute', right: '25px'}}>
+            <ThemeToggle checked = {checked} onToggle={onToggle}/>
           </div>
         </Toolbar>
     </AppBar>
