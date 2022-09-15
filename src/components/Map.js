@@ -1,41 +1,67 @@
-import React from 'react'
-import { GoogleMap, LoadScript, Marker} from '@react-google-maps/api'
+import React, {useState} from 'react'
+import { GoogleMap, LoadScript, Marker, InfoWindowF} from '@react-google-maps/api'
+
+//defining Map parameters
+const mapStyle = {
+	height: "100vh",
+	width: '100%'
+}
+const defaultCenter = {
+	lat: 45.564285,
+	lng: -73.560084
+}
+const API_KEY = 'AIzaSyDXO5NqvtqfpWugAJbnuhkvabxqjNQbIWY'
 
 
-const Map = ( {signMarkers} ) => {
+const Map = ( { theme, signMarkers } ) => {
 	
-	const API_KEY = 'AIzaSyDXO5NqvtqfpWugAJbnuhkvabxqjNQbIWY'
-	const mapStyle = {
-		height: "100vh",
-		width: '100%'
+	const [activeMarker, setActiveMarker] = useState(null);	 
+	const handleActiveMarker = (marker) => {
+		if (marker === activeMarker){
+			setActiveMarker(null)
+			return;
+		}
+		setActiveMarker(marker);
 	}
-	const defaultCenter = {
-		lat: 45.469115,
-		lng: -73.643790
-	}
+	
 
-    return (
+	return (
         <LoadScript googleMapsApiKey= {API_KEY}>
 			<GoogleMap
+				onClick={ () => setActiveMarker(null)}
 				mapContainerStyle={mapStyle}
 				zoom={13}
-				center={defaultCenter}>
+				center={defaultCenter}
+				options={{styles:theme}}>
 				{
-					signMarkers.map((item) => {
-						
-						const location = {
-							lat: Number(item.Latitude),
-							lng: Number(item.Longitude),
-						}
-						console.log(location)
-						console.log(item)
-						return(
-							<Marker key = {item._ID} position={location}/>
-						)
-					})
-				}
+				signMarkers.map((item) => {
+					const location = {
+						lat: Number(item.Latitude),
+						lng: Number(item.Longitude),
+					}
+					return (
+						<Marker 
+							key={item._ID}
+							position={location}
+							onClick={ () => {
+								handleActiveMarker(item)
+								}
+							}
+							label = 'P'
+							>
+								{
+									activeMarker === item ? (
+										<InfoWindowF onCloseClick={() => setActiveMarker(null)}>
+											<div>Description: {item.DESCRIPTION_RPA}</div> 										
+										</InfoWindowF>
+									):null
+								}
+						</Marker>
+					)
+				})
+			}
+							
 			</GoogleMap>
-			
 		</LoadScript>
     )
 }

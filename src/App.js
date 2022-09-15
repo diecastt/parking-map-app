@@ -4,7 +4,7 @@ import Header from './components/Header'
 import Footer from './components/Footer'
 import CssBaseline from '@mui/material/CssBaseline';
 import { ThemeProvider } from '@mui/material/styles';
-import { lightTheme, darkTheme} from './components/Theme'
+import { lightTheme, darkTheme, darkMapStyles} from './components/Theme'
 import MapContainer from './components/MapContainer';
 
 const API_LINK = 'https://montreal.l3.ckan.io/api/3/action/datastore_search?resource_id=7f1d4ae9-1a12-46d7-953e-6b9c18c78680&limit=100&offset=158900'
@@ -38,7 +38,7 @@ function App() {
       <Header checked = {isDarkTheme} onToggle = {toggleTheme}/>
       <main>
         <Introduction/>
-		    <MapContainer signMarkers={signLocations}/>
+		<MapContainer theme={isDarkTheme ? darkMapStyles: null} signMarkers={signLocations}/>
       </main>
 	    <Footer/>
     </ThemeProvider>
