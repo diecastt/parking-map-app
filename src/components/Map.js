@@ -10,28 +10,37 @@ const defaultCenter = {
 	lat: 45.564285,
 	lng: -73.560084
 }
+const defaultZoom = 13
 const API_KEY = 'AIzaSyDXO5NqvtqfpWugAJbnuhkvabxqjNQbIWY'
 
 
 const Map = ( { theme, signMarkers } ) => {
 	
+	const [zoom, setZoom] = useState(defaultZoom)
+	const [center, setCenter] = useState(defaultCenter)
 	const [activeMarker, setActiveMarker] = useState(null);	 
-	const handleActiveMarker = (marker) => {
+	const handleActiveMarker = (marker, location) => {
 		if (marker === activeMarker){
 			setActiveMarker(null)
+			setZoom(defaultZoom)
 			return;
 		}
+		setCenter(location);
+		setZoom(18)
 		setActiveMarker(marker);
 	}
 	
 
 	return (
-        <LoadScript googleMapsApiKey= {API_KEY}>
+         <LoadScript googleMapsApiKey= {API_KEY}>
 			<GoogleMap
-				onClick={ () => setActiveMarker(null)}
-				mapContainerStyle={mapStyle}
-				zoom={13}
-				center={defaultCenter}
+				onClick={ () => {
+					setActiveMarker(null)
+					setZoom(defaultZoom)
+				}}
+					mapContainerStyle={mapStyle}
+				zoom={zoom}
+				center={center}
 				options={{styles:theme}}>
 				{
 				signMarkers.map((item) => {
@@ -44,14 +53,17 @@ const Map = ( { theme, signMarkers } ) => {
 							key={item._ID}
 							position={location}
 							onClick={ () => {
-								handleActiveMarker(item)
+								handleActiveMarker(item, location)
 								}
 							}
-							label = 'P'
+							animation = {window.google.maps.Animation.DROP}							
 							>
 								{
 									activeMarker === item ? (
-										<InfoWindowF onCloseClick={() => setActiveMarker(null)}>
+										<InfoWindowF onCloseClick={() => {
+											setZoom(defaultZoom)
+											setActiveMarker(null)
+										}}>
 											<div>Description: {item.DESCRIPTION_RPA}</div> 										
 										</InfoWindowF>
 									):null

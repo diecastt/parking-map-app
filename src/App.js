@@ -7,10 +7,11 @@ import { ThemeProvider } from '@mui/material/styles';
 import { lightTheme, darkTheme, darkMapStyles} from './components/Theme'
 import MapContainer from './components/MapContainer';
 
+
 const API_LINK = 'https://montreal.l3.ckan.io/api/3/action/datastore_search?resource_id=7f1d4ae9-1a12-46d7-953e-6b9c18c78680&limit=100&offset=158900'
 function App() {
 
-
+	const [showMap, setShowMap] = useState(true);
 	const [signLocations, setSignLocations] = useState([]);
 	const [isDarkTheme, setIsDarkTheme] = useState(false) // default lightTheme
 
@@ -37,8 +38,11 @@ function App() {
       <CssBaseline/>
       <Header checked = {isDarkTheme} onToggle = {toggleTheme}/>
       <main>
-        <Introduction/>
-		<MapContainer theme={isDarkTheme ? darkMapStyles: null} signMarkers={signLocations}/>
+		<Introduction onOpenMap={() => setShowMap(!showMap)} showMap = {showMap}/>
+		{
+			showMap && <MapContainer theme={isDarkTheme ? darkMapStyles: null} signMarkers={signLocations}/>
+		
+		}
       </main>
 	    <Footer/>
     </ThemeProvider>

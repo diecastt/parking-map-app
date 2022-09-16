@@ -7,7 +7,8 @@ const MapContainer = ( { theme, signMarkers} ) => {
   return (
     <Box
 		sx = {{
-			pb: '100px'
+      pt: '50px',
+			pb: '70px'
 		}}>
         <Container maxWidth="lg"
         sx ={{
