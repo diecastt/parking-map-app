@@ -14,7 +14,7 @@ const Copyright = () => {
         </Link>{'  •  '}
         {new Date().getFullYear()}
         {'.'}
-        <div>{'Copyright ©'}</div>
+        <>{'Copyright ©'}</>
     </Typography>
   )
 }

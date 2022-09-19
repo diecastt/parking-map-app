@@ -1,7 +1,7 @@
 import React from 'react'
 import { styled } from '@mui/material/styles';
 import Switch from '@mui/material/Switch';
-import { FormControlLabel, FormGroup } from '@mui/material';
+import { FormControlLabel } from '@mui/material';
 
 const CustomToggle = styled(Switch)(({ theme }) => ({
     width: 62,
