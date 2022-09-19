@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/parking-map-app/static/css/main.e6c13ad2.css",
+    "main.js": "/parking-map-app/static/js/main.6fe672a0.js",
+    "static/js/787.7ae6800b.chunk.js": "/parking-map-app/static/js/787.7ae6800b.chunk.js",
+    "index.html": "/parking-map-app/index.html",
+    "main.e6c13ad2.css.map": "/parking-map-app/static/css/main.e6c13ad2.css.map",
+    "main.6fe672a0.js.map": "/parking-map-app/static/js/main.6fe672a0.js.map",
+    "787.7ae6800b.chunk.js.map": "/parking-map-app/static/js/787.7ae6800b.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.e6c13ad2.css",
+    "static/js/main.6fe672a0.js"
+  ]
+}
