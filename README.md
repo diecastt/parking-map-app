@@ -13,10 +13,9 @@
 ## Used
 (React.js, JavaScript, HTML, CSS, Material UI, Express.js, deployed with GitHub Pages)
 
-[![Image from Gyazo](https://i.gyazo.com/808c84cfda3c99b04aa18cba8c8db2e4.gif)](https://gyazo.com/808c84cfda3c99b04aa18cba8c8db2e4)
-
 ### `! Important Notice !`
 Due to the limitations of the City of Montreal Open database API, the number of sign locations is limited and not all locations are currently displayed.
 
-
+[![Image from Gyazo](https://i.gyazo.com/808c84cfda3c99b04aa18cba8c8db2e4.gif)](https://gyazo.com/808c84cfda3c99b04aa18cba8c8db2e4)
+[![Image from Gyazo](https://i.gyazo.com/9551a65abf613ae5bf1a953741c6b22c.gif)](https://gyazo.com/9551a65abf613ae5bf1a953741c6b22c)
 

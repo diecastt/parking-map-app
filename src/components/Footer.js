@@ -7,7 +7,7 @@ const Footer = () => {
     
     <Box sx={{ bgcolor: 'background.paper', p: 6 }} component="footer">
     <Typography variant="h6" align="center" gutterBottom>
-      Montreal Park Map
+      Montreal Parking Map
     </Typography>
     <Typography
       variant="subtitle1"
