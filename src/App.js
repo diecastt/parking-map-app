@@ -6,11 +6,11 @@ import { ThemeProvider } from '@mui/material/styles';
 import { lightTheme, darkTheme, darkMapStyles} from './components/Theme'
 import Introduction from './components/Introduction';
 import MapContainer from './components/MapContainer';
-import { Slide, Collapse } from '@mui/material';
+import { Collapse } from '@mui/material';
 
-
-
+const API_KEY = process.env.REACT_APP_MAPS_KEY
 const API_LINK = 'https://montreal.l3.ckan.io/api/3/action/datastore_search?resource_id=7f1d4ae9-1a12-46d7-953e-6b9c18c78680&limit=10000&offset=158900'
+
 function App() {
 
 	const [showIntro, setShowIntro] = useState(true);
@@ -34,7 +34,6 @@ function App() {
 		fetchSigns();
 
 	}, []);
-
   return (
 		<ThemeProvider theme={isDarkTheme ? darkTheme : lightTheme}>
 			<CssBaseline/>
@@ -43,7 +42,7 @@ function App() {
 				<Introduction/>
 			</Collapse>
 			<MapContainer theme = {isDarkTheme ? darkMapStyles : null} signMarkers = {signLocations}
-				onShowIntro={() => setShowIntro(!showIntro)} showIntro = {showIntro}/>
+				onShowIntro={() => setShowIntro(!showIntro)} showIntro = {showIntro} mapKey={API_KEY}/>
 			<Footer/>
 		</ThemeProvider>
 	

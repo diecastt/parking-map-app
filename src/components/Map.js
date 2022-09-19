@@ -12,10 +12,10 @@ const defaultCenter = {
 	lng: -73.560084
 }
 const defaultZoom = 12
-const API_KEY = 'AIzaSyDXO5NqvtqfpWugAJbnuhkvabxqjNQbIWY'
 
 
-const Map = ( { theme, signMarkers } ) => {
+
+const Map = ( { theme, signMarkers, mapKey } ) => {
 	
 	const [zoom, setZoom] = useState(defaultZoom)
 	const [center, setCenter] = useState(defaultCenter)
@@ -32,7 +32,7 @@ const Map = ( { theme, signMarkers } ) => {
 	}
 
 	return (
-		<LoadScript googleMapsApiKey= {API_KEY}>
+		<LoadScript googleMapsApiKey= {mapKey}>
 			<GoogleMap
 				onClick={ () => {
 					setActiveMarker(null)

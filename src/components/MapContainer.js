@@ -4,7 +4,7 @@ import Box from '@mui/material/Box';
 import Container from '@mui/material/Container';
 import { Stack, Button } from '@mui/material';
 
-const MapContainer = ( { theme, signMarkers, showIntro, onShowIntro} ) => {
+const MapContainer = ( { theme, signMarkers, showIntro, onShowIntro, mapKey } ) => {
   return (
     <Box
 		sx = {{
@@ -29,7 +29,7 @@ const MapContainer = ( { theme, signMarkers, showIntro, onShowIntro} ) => {
             border: '1px solid grey',
             borderRadius: '4px',
         }}>
-          <Map theme = {theme} signMarkers = {signMarkers}/>
+          <Map theme = {theme} signMarkers = {signMarkers} mapKey={mapKey}/>
         </Container>
 	</Box>
   )
